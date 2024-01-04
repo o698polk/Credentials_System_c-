@@ -45,7 +45,9 @@ Contact
 For any questions or suggestions related to this project, feel free to contact the development team at [polk.2000az@gmail.com].
 
 
-Sistema Automatizado de Carnetización Estudiantil Descripción Este proyecto es un sistema web desarrollado en C# utilizando Visual Studio y el servicio .NET ASP, enfocado en la automatización del proceso de carnetización estudiantil. El sistema está diseñado para la generación automática de credenciales para estudiantes, facilitando la gestión eficiente de datos y la emisión de identificaciones estudiantiles.
+Sistema Automatizado de Carnetización Estudiantil
+Descripción 
+Este proyecto es un sistema web desarrollado en C# utilizando Visual Studio y el servicio .NET ASP, enfocado en la automatización del proceso de carnetización estudiantil. El sistema está diseñado para la generación automática de credenciales para estudiantes, facilitando la gestión eficiente de datos y la emisión de identificaciones estudiantiles.
 
 Características Principales Gestión de Estudiantes: Registro y almacenamiento de información detallada de los estudiantes, incluyendo nombres, apellidos, fotografías y datos de contacto en una base de datos SQL Server.
 
