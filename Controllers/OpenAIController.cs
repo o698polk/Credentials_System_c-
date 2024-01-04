@@ -32,7 +32,7 @@ namespace carnetutelvt.Controllers
             }
             else
             {
-                string apikey = "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";
+                string apikey = "";
                 string respuetsa = string.Empty;
                 var chatbotIA = new OpenAIAPI(apikey);
                 var completion = new CompletionRequest();
