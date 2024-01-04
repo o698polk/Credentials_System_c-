@@ -1,0 +1,138 @@
+﻿@model carnetutelvt.Models.Detallestb
+
+@{
+    ViewData["Title"] = "CREAR DETALLES DE LOS USUARIOS";
+}
+
+<div class="hero">
+  <center>  <h1>Crear Usuarios mediante  Admin</h1></center>
+    <div class="container">
+        
+          <form class="form" asp-action="Create">
+            <div class="row mb-2">
+                <div class="col-sm-12 col-md-6 mb-3 mb-lg-0 col-lg-3">
+                    <div class="form-group">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                </div>
+                 </div>
+         <div class="col-sm-12 col-md-6 mb-3 mb-lg-0 col-lg-3">
+            <div class="form-group">
+                
+                <input asp-for="Fullname" class="form-control" placeholder="Nombres" />
+                <span asp-validation-for="Fullname" class="text-danger"></span>
+            </div>
+            </div>
+                <div class="col-sm-12 col-md-6 mb-3 mb-lg-0 col-lg-3">
+            <div class="form-group">
+                
+                        <input asp-for="Surnames" class="form-control" placeholder="Apellidos" />
+                <span asp-validation-for="Surnames" class="text-danger"></span>
+            </div>
+            </div>
+         
+               
+        
+
+                <div class="col-sm-12 col-md-6 mb-3 mb-lg-0 col-lg-3">
+                    <div class="form-group">
+                        <select asp-for="Faculty" class="form-control" aria-label="Elegir Rol"required>
+                            <option selected>Facultad</option>
+                            <option value="Facultad de Ingenierías">Facultad de Ingenierías</option>
+                            <option value="Facultad de Ciencias Sociales y de Servicios">Facultad de Ciencias Sociales y de Servicios</option>
+                            <option value="Facultad de Ciencias Administrativas y Económicas">Facultad de Ciencias Administrativas y Económicas</option>
+                            <option value="Facultad de Ciencias Agropecuarias">Facultad de Ciencias Agropecuarias</option>
+                            <option value="Facultad de la Pedagogía">Facultad de la Pedagogía</option>
+                          
+                        </select>
+
+                        <span asp-validation-for="Faculty" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-6 mb-3 mb-lg-0 col-lg-3">
+                    <div class="form-group">
+                        <select asp-for="Specialty" class="form-control" aria-label="Carrera" required>
+                            <option selected>Carrera</option>
+                            <option value="Ingeniería Mecánica">Ingeniería Mecánica</option>
+                            <option value="Ingeniería Eléctrica">Ingeniería Eléctrica</option>
+                            <option value="Ingeniería Química ">Ingeniería Química </option>
+                            <option value="Ingeniería en Tecnologías de la Información y Comunicación">Ingeniería en Tecnologías de la Información y Comunicación</option>
+                            <option value="Sociología">Sociología</option>
+                            <option value="Trabajo Social ">Trabajo Social </option>
+                            <option value="Hotelería y Turismo ">Hotelería y Turismo </option>
+                            <option value="Ingeniería en Administración de Empresa ">Ingeniería en Administración de Empresa </option>
+                            <option value="Ingeniería en Contabilidad y Auditoría ">Ingeniería en Contabilidad y Auditoría </option>
+                            <option value="Ingeniería en Comercio ">Ingeniería en Comercio </option>
+                            <option value="Ingeniería en Agronomía">Ingeniería en Agronomía</option>
+                            <option value="Ingeniería Forestal">Ingeniería Forestal</option>
+                            <option value="Ingeniería Zootécnica">Ingeniería Zootécnica</option>
+                            <option value="Ciencias Experimentales de las Matemáticas y la Física">Ciencias Experimentales de las Matemáticas y la Física.</option>
+                            <option value="Ciencias Experimentales de la Química y Bilogía">Ciencias Experimentales de la Química y Bilogía</option>
+                            <option value="Licenciatura en Educación Básica">Licenciatura en Educación Básica</option>
+                            <option value="Pedagogía de la lengua y Literatura   ">Pedagogía de la lengua y Literatura   </option>
+                            <option value="Pedagogía de la Actividad Física y Deporte ">Pedagogía de la Actividad Física y Deporte </option>
+                            <option value="Licenciatura en Educación Inicial ">Licenciatura en Educación Inicial </option>
+                        </select>
+
+                        <span asp-validation-for="Specialty" class="text-danger"></span>
+                    </div>
+                </div>
+
+
+                <div class="col-sm-12 col-md-6 mb-3 mb-lg-0 col-lg-3">
+                    <div class="form-group">
+                        <select asp-for="Bloodtype" class="form-control" aria-label="Elegir Tipo de Sangre">
+                            <option value="" selected>Null</option>
+                            <option value="A+">A+</option>
+                            <option value="A-">A-</option>
+                            <option value="B+">B+</option>
+                            <option value="B-">B-</option>
+                            <option value="AB+">AB+</option>
+                            <option value="AB-">AB-</option>
+                            <option value="O+">O+</option>
+                            <option value="O-">O-</option>
+                           
+
+                        </select>
+
+                        <span asp-validation-for="Bloodtype" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-6 mb-3 mb-lg-0 col-lg-3">
+            <div class="form-group">
+
+                        <input asp-for="Ci"  type="number" class="form-control" required placeholder="CI" maxlength="10"  />
+                <span asp-validation-for="Ci" class="text-danger"></span>
+            </div>
+            </div>
+               
+                <div class="col-sm-12 col-md-6 mb-3 mb-lg-0 col-lg-3">
+                    <div class="form-group">
+                        <label>Subir imagen</label>
+                        <input type="file" name="Imgcarnett" class="form-control" />
+
+                    </div>
+                </div>
+              <div class="col-sm-12 col-md-6 mb-3 mb-lg-0 col-lg-3">
+            <div class="form-group">
+                <label asp-for="Iduser" class="control-label"></label>
+                <select asp-for="Iduser" class ="form-control" asp-items="ViewBag.Iduser"></select>
+            </div>
+             </div>
+           
+                <div class="col-sm-12 col-md-6 mb-3 mb-lg-0 col-lg-3">
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+            </div>
+            </div>
+        </form>
+        <a type="submit" class="btn btn-dark" asp-action="Index">Back</a>
+    </div>
+
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,85 @@
+﻿@model carnetutelvt.Models.Usertb
+
+@{
+    ViewData["Title"] = "REGISTRAR";
+}
+
+
+<div class="hero">
+    <center> <h1>Crear Cuenta</h1></center>
+    <div class="container">
+
+        <form class="form" asp-action="Register">
+
+            <div class="row mb-2">
+                <div class="col-sm-12 col-md-6 mb-3 mb-lg-0 col-lg-3">
+                    <div class="form-group">
+
+                        <input asp-for="Email" id="correo" class="form-control" placeholder="Correo Institucional" oninput="verificarClaves()" required />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-6 mb-3 mb-lg-0 col-lg-3">
+                    <div class="form-group">
+
+                        <input type="password" id="clave1" asp-for="Passwords" class="form-control" placeholder="Clave" oninput="verificarClaves()" required />
+                        <span asp-validation-for="Passwords" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-6 mb-3 mb-lg-0 col-lg-3">
+                    <div class="form-group">
+
+                        <input type="password" id="clave2" class="form-control" placeholder="Repetir clave" oninput="verificarClaves()"  required />
+                       
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-6 mb-3 mb-lg-0 col-lg-3">
+                    <div class="form-group">
+                        <select asp-for="Typess" class="form-control" aria-label="Elegir Typess">
+
+                            <option selected value="0">Estudiante</option>
+                            <option value="1">Docente</option>
+
+                        </select>
+
+                        <span asp-validation-for="Typess" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-6 mb-3 mb-lg-0 col-lg-3">
+                    <div class="form-group">
+                        <input type="submit" value="Create" id="btncreate"class="btn btn-primary" />
+                    </div>
+                </div>
+            </div>
+        </form>
+
+    </div>
+    <div class="respuesta">
+        @if (ViewData["Error"] == "1")
+        {
+            <strong style="color:green">Cuenta creada correctamente: </strong> <p style="color:blueviolet">Revisa tu correo y Verifica tu cuenta</p>
+           
+        }
+        else @if (ViewData["Error"] == "0")
+        {
+            <strong style="color:red">Error en la creación (Tal vez la cuenta ya existe)</strong>
+        }
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

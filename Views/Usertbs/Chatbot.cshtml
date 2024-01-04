@@ -1,0 +1,55 @@
+﻿@inject IHttpContextAccessor context;
+
+@{
+    ViewData["Title"] = "CHATBOT LUISITO VARGAS TORRES";
+}
+<link rel="stylesheet" href="~/css/index.css" asp-append-version="true" />
+<section class="msger" id="idperfilimguser" imgus="@context.HttpContext.Session.GetString("imgperfil")">
+    <header class="msger-header">
+        <div class="msger-header-title">
+            <i class="fas fa-comment-alt"></i> UtelvtChat ~ En ciertos momentos, la única forma de tener razón es perdiéndola...
+        </div>
+        <div class="msger-header-options">
+            <span><i class="fas fa-cog"></i></span>
+        </div>
+    </header>
+
+    <main class="msger-chat">
+        <div class="msg left-msg">
+            <div class="msg-img"
+                 style="background-image: url(https://pbs.twimg.com/profile_images/557902562959978496/YEBIqgVK_400x400.png)"></div>
+
+            <div class="msg-bubble">
+                <div class="msg-info">
+                    <div class="msg-info-name">CHATBOT</div>
+                    <div class="msg-info-time">HORA:</div>
+                </div>
+
+                <div class="msg-text">
+                    ¡Hola, Bienvenido al ChatBot! Adelante, envíame un mensaje.. 😄
+                </div>
+            </div>
+        </div>
+
+        <div class="msg right-msg">
+            <div class="msg-img"
+                 style="background-image: url(https://cdn-icons-png.flaticon.com/512/2436/2436636.png)"></div>
+
+            <div class="msg-bubble">
+                <div class="msg-info">
+                    <div class="msg-info-name">Estudiante</div>
+                    <div class="msg-info-time">Hora</div>
+                </div>
+
+                <div class="msg-text">
+                    Prueba1!
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <form class="msger-inputarea">
+        <input type="text" class="msger-input" placeholder="Escribe...">
+        <button type="submit" class="msger-send-btn">Enviar</button>
+    </form>
+</section>

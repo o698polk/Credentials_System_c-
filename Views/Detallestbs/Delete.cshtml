@@ -1,0 +1,81 @@
+﻿@model carnetutelvt.Models.Detallestb
+
+@{
+    ViewData["Title"] = "ELIMINAR DETALLE DE LOS USUARIOS";
+}
+
+<div class="hero">
+    <center>
+        <h1>Eliminarr Usuarios mediante  Admin</h1> <center>
+    <div class="container">
+
+        <form asp-action="Delete" class="form">
+
+
+    
+
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Fullname)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Fullname)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Surnames)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Surnames)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Specialty)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Specialty)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Faculty)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Faculty)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Ci)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Ci)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Imgcarnet)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Imgcarnet)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Dateupdate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Dateupdate)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Datecreate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Datecreate)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.IduserNavigation)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.IduserNavigation.Id)
+        </dd>
+    </dl>
+    
+    
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> 
+     
+    </form>
+      <a type="submit" class="btn btn-dark" asp-action="Index">Back</a>
+    </div>
+</div>

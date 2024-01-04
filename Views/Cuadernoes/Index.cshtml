@@ -1,0 +1,147 @@
+﻿@model IEnumerable<carnetutelvt.Models.Cuaderno>
+
+
+@{
+	ViewData["Title"] = "UTELVT";
+}
+
+
+<div class="hero">
+
+
+	<div class="container">
+
+
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-6 text-center mb-4">
+					<center>	<h2> CUADERNO [HOJAS]: (@ViewData["NumDatosV"]/@ViewData["NumDatos"])</h2></center>
+
+				</div>
+
+			</div>
+			<div class="container">
+				<form class="form" asp-action="Index">
+					<div class="form-group">
+						<input name="nameC" class="form-control" placeholder="Nombre de la Hoja" />
+
+					</div>
+					<div class="col-sm-12 col-md-6 mb-3 mb-lg-0 col-lg-3">
+						<div class="form-group">
+							<select name="Valor" class="form-control" aria-label="Elegir Tipo de Sangre">
+
+								<option value="" selected>Null</option>
+								<option value="50">50</option>
+								<option value="100">100</option>
+								<option value="1000">1000</option>
+								<option value="10000">10000</option>
+
+
+							</select>
+
+
+						</div>
+					</div>
+
+					<input type="submit" value="Buscar" class="btn btn-info">
+				</form>
+				<h3><a type="button" class="btn btn-success" asp-action="Create">Crear Nuevo</a></h3>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+
+					<div class="table-wrap">
+						<table class="table">
+							<thead class="thead-primary">
+								<tr>
+									<th>@Html.DisplayNameFor(model => model.Id)</th>
+									<th>@Html.DisplayNameFor(model => model.NameC)</th>
+									<th> @Html.DisplayNameFor(model => model.InfoC)</th>
+									<th> @Html.DisplayNameFor(model => model.Iduser)</th>
+									<th> @Html.DisplayNameFor(model => model.Dateupdate)</th>
+									<th> @Html.DisplayNameFor(model => model.Datecreate)</th>
+
+
+
+
+									<th>Edit</th>
+									<th>Details</th>
+									<th>Delete</th>
+								</tr>
+							</thead>
+							<tbody>
+								@foreach (var item in Model)
+								{
+									<tr class="alert" role="alert">
+										<td>
+											<div class="email">
+												<input type="text" value="@Html.DisplayFor(modelItem => item.Id)" readonly>
+												<span class="checkmark"></span>
+											</div>
+										</td>
+
+										<td>
+											<div class="email">
+
+												<span><input type="text" value=" @Html.DisplayFor(modelItem => item.NameC)" readonly></span>
+											</div>
+										</td>
+										<td>
+											<div class="email">
+
+												<span><input type="text" value="@Html.DisplayFor(modelItem => item.InfoC)" readonly></span>
+											</div>
+										</td>
+										<td>
+											<div class="email">
+
+												<span><input type="text" value="@Html.DisplayFor(modelItem => item.Iduser)" readonly></span>
+											</div>
+										</td>
+										
+										<td>
+											<div class="email">
+
+												<span><input type="text" value="@Html.DisplayFor(modelItem => item.Dateupdate)" readonly></span>
+											</div>
+										</td>
+										<td>
+											<div class="email">
+
+												<span><input type="text" value="@Html.DisplayFor(modelItem => item.Datecreate)" readonly></span>
+											</div>
+										</td>
+
+										<td>
+											<div class="email">
+												<a type="submit" class="btn btn-success" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+											</div>
+										</td>
+										<td>
+											<div class="email">
+
+												<a type="submit" class="btn btn-info" asp-action="Details" asp-route-id="@item.Id">Details</a>
+
+											</div>
+										</td>
+										<td>
+											<div class="email">
+
+												<a type="submit" class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+											</div>
+										</td>
+
+
+									</tr>
+
+
+								}
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>

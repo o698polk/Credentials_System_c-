@@ -1,0 +1,282 @@
+﻿@inject IHttpContextAccessor context;
+@model carnetutelvt.Models.Detallestb
+@{
+    ViewData["Title"] = "PERFIL DEL USUARIO";
+}
+<div class="hero">
+    <!-- <center> <h1>Completa tus datos  para generar el Carnet</h1>></center>-->
+    <center>
+        
+  
+    <div class="container">
+
+            @if (ViewBag.Imgcarnet == null || ViewBag.Fullname==null || ViewBag.Surnames==null)
+            {
+                <form asp-controller="Detallestbs" asp-action="Edit" class="form"  enctype="multipart/form-data">
+
+                    <div class="row mb-2">
+                        <div class="col-sm-12 col-md-6 mb-3 mb-lg-0 col-lg-3">
+                            <div class="form-group">
+                                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                <input type="hidden" asp-for="Id" />
+
+                            </div>
+                        </div>
+
+                        <div class="col-sm-12 col-md-6 mb-3 mb-lg-0 col-lg-3">
+                            <div class="form-group">
+
+                                <input asp-for="Fullname" class="form-control" required placeholder="Nombres" />
+                                <span asp-validation-for="Fullname" class="text-danger"></span>
+                            </div>
+                        </div>
+
+
+                        <div class="col-sm-12 col-md-6 mb-3 mb-lg-0 col-lg-3">
+                            <div class="form-group">
+
+                                <input asp-for="Surnames" class="form-control" required placeholder="Apellidos" />
+                                <span asp-validation-for="Surnames" class="text-danger"></span>
+                            </div>
+                        </div>
+
+
+
+                        <div class="col-sm-12 col-md-6 mb-3 mb-lg-0 col-lg-3">
+                            <div class="form-group">
+                                <select asp-for="Faculty" class="form-control" aria-label="Facultad" required placeholder="Facultad">
+
+                                    <option value="Facultad de Ingenierías" selected>Facultad de Ingenierías</option>
+                                    <option value="Facultad de Ciencias Sociales y de Servicios">Facultad de Ciencias Sociales y de Servicios</option>
+                                    <option value="Facultad de Ciencias Administrativas y Económicas">Facultad de Ciencias Administrativas y Económicas</option>
+                                    <option value="Facultad de Ciencias Agropecuarias">Facultad de Ciencias Agropecuarias</option>
+                                    <option value="Facultad de la Pedagogía">Facultad de la Pedagogía</option>
+
+                                </select>
+
+                                <span asp-validation-for="Faculty" class="text-danger"></span>
+                            </div>
+                        </div>
+                        @if (ViewBag.types == "0" )
+                        {
+                        <div class="col-sm-12 col-md-6 mb-3 mb-lg-0 col-lg-3">
+                            <div class="form-group">
+                                    <select asp-for="Specialty" class="form-control" aria-label="Carrera" required placeholder="Carrera">
+                                        <option selected>Carrera</option>
+                                    <option value="Ingeniería Mecánica">Ingeniería Mecánica</option>
+                                    <option value="Ingeniería Eléctrica">Ingeniería Eléctrica</option>
+                                    <option value="Ingeniería Química ">Ingeniería Química </option>
+                                        <option value="Ingeniería en Tecnologías de la Información y Comunicación">Ingeniería en Tecnologías de la Información y Comunicación</option>
+                                    <option value="Sociología">Sociología</option>
+                                    <option value="Trabajo Social ">Trabajo Social </option>
+                                    <option value="Hotelería y Turismo ">Hotelería y Turismo </option>
+                                    <option value="Ingeniería en Administración de Empresa ">Ingeniería en Administración de Empresa </option>
+                                    <option value="Ingeniería en Contabilidad y Auditoría ">Ingeniería en Contabilidad y Auditoría </option>
+                                    <option value="Ingeniería en Comercio ">Ingeniería en Comercio </option>
+                                    <option value="Ingeniería en Agronomía">Ingeniería en Agronomía</option>
+                                    <option value="Ingeniería Forestal">Ingeniería Forestal</option>
+                                    <option value="Ingeniería Zootécnica">Ingeniería Zootécnica</option>
+                                    <option value="Ciencias Experimentales de las Matemáticas y la Física">Ciencias Experimentales de las Matemáticas y la Física.</option>
+                                    <option value="Ciencias Experimentales de la Química y Bilogía">Ciencias Experimentales de la Química y Bilogía</option>
+                                    <option value="Licenciatura en Educación Básica">Licenciatura en Educación Básica</option>
+                                    <option value="Pedagogía de la lengua y Literatura   ">Pedagogía de la lengua y Literatura   </option>
+                                    <option value="Pedagogía de la Actividad Física y Deporte ">Pedagogía de la Actividad Física y Deporte </option>
+                                    <option value="Licenciatura en Educación Inicial ">Licenciatura en Educación Inicial </option>
+                                </select>
+
+                                <span asp-validation-for="Specialty" class="text-danger"></span>
+                            </div>
+                        </div>
+                        }
+                        <div class="col-sm-12 col-md-6 mb-3 mb-lg-0 col-lg-3">
+                            <div class="form-group">
+                                <select asp-for="Bloodtype" class="form-control" aria-label="Elegir Tipo de Sangre">
+                                    <option value="" selected>Null</option>
+                                    <option value="A+">A+</option>
+                                    <option value="A-">A-</option>
+                                    <option value="B+">B+</option>
+                                    <option value="B-">B-</option>
+                                    <option value="AB+">AB+</option>
+                                    <option value="AB-">AB-</option>
+                                    <option value="O+">O+</option>
+                                    <option value="O-">O-</option>
+
+
+                                </select>
+
+                                <span asp-validation-for="Bloodtype" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-12 col-md-6 mb-3 mb-lg-0 col-lg-3">
+                            <div class="form-group">
+
+                                <input asp-for="Ci" type="number" class="form-control"  maxlength="10" required placeholder="Cedula" />
+                                <span asp-validation-for="Ci" class="text-danger"></span>
+                            </div>
+                        </div>
+
+
+                        <div class="col-sm-12 col-md-6 mb-3 mb-lg-0 col-lg-3">
+                            <div class="form-group">
+                             
+                                <input type="hidden" asp-for="Imgcarnet" class="form-control" id="archivo" asp-items="ViewBag.Imgcarnet" accept="image/png,image/jpeg" readonly placeholder="Foto" />
+                                <span asp-validation-for="Imgcarnet" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-12 col-md-6 mb-3 mb-lg-0 col-lg-3">
+                            <div class="form-group">
+                                
+                                Foto modo canet: <input type="file" name="Imgcarnett" class="form-control" />
+
+                            </div>
+                        </div>
+
+                        <div class="col-sm-12 col-md-6 mb-3 mb-lg-0 col-lg-3">
+                            <div class="form-group">
+
+                                <input  type="hidden" asp-for="Iduser" class="form-control" asp-items="ViewBag.Iduser" readonly>
+                                <span asp-validation-for="Iduser" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-12 col-md-6 mb-3 mb-lg-0 col-lg-3">
+                            <div class="form-group">
+
+                                    <input asp-for="Datecreate" class="form-control" asp-items="ViewBag.Datecreate" readonly></input>
+                                <span asp-validation-for="Datecreate" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-6 mb-3 mb-lg-0 col-lg-3">
+                            <div class="form-group">
+                                <input type="submit" value="Save" class="btn btn-primary" />
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <div class="container">
+                    <center>
+                        <h1 class="mb-5"><span class="d-block"></span>Completa tus datos para generar el Carnet. <span class="typed-words"></span></h1>
+                        </center>
+                    <div class="respuesta">
+                        @if (ViewData["Error"] == "1")
+                        {
+                            <strong style="color:green">Cuenta creada correctamente: </strong> <p style="color:blueviolet">Revisa tu correo y Verifica tu cuenta</p>
+
+                        }
+                        else @if (ViewData["Error"] == "0")
+                        {
+                            <strong style="color:red">Error en la creación </strong>
+                        }
+                    </div>
+                </div>
+            }
+            else
+            {
+                @if (ViewBag.types == "0")
+                {
+
+
+                    <div class="carnet" id="carnetid">
+
+                        <div class="content" id="carnetfondo">
+                            <div class="barralogo"> <img src="/carnet\ESCUDETO_UTE-LVT.png" loading="lazy" id="logout"alt="Mi Foto">UTLVTE</div>
+                            <img src="/uploads\@ViewBag.Imgcarnet" id="perfilimg" alt="Mi Foto">
+                            <h1>@ViewBag.Fullname @ViewBag.Surnames </h1>
+                            <h2><strong> ID:</strong> @ViewBag.Ci</h2>
+                            
+                            <div class="datos" id="fondodata">
+                                <strong>ESTUDIANTE</strong>
+                                <p id="Facultades" nfacul="@ViewBag.Faculty"><strong> Facultad:</strong> @ViewBag.Faculty</p>
+                                <p><strong> Carrera:</strong> @ViewBag.Specialty</p>
+                                <p><strong>Correo:</strong>  @ViewBag.email</p>
+                                <h2 class="tiposangre"><strong> @ViewBag.Bloodtype</strong> </h2>
+                                <p id="qrcode"> <img src="@ViewBag.qr" id="qrcodeimg" alt="Mi Foto"></p>
+
+
+                            </div>
+                            <p id="link">www.utelvt.edu.ec</p>
+                            
+                        </div>
+                    </div>
+                }
+                else
+                {
+                    <div class="container carnet2" id="carnetid">
+                           <div  id="marcofondo">
+                        <div class=" container doccontent" id="carnetfondo2">
+                           <br>
+                    
+                            <img src="/uploads\@ViewBag.Imgcarnet" id="perfilimg" alt="Mi Foto">
+                               
+                            <div  id="espaciondeldata">
+                                   
+                            <div class="datos2" id="">
+                                <br>
+                             
+                                <h1>@ViewBag.Fullname @ViewBag.Surnames </h1>
+                                <h2><strong> ID:</strong> @ViewBag.Ci</h2>
+                                <p id="Facultades" nfacul="@ViewBag.Faculty"><strong> Facultad:</strong> @ViewBag.Faculty</p>
+                                
+                                <p><strong>Correo:</strong>  @ViewBag.email</p>
+                                <h2 class="tiposangre"><strong> @ViewBag.Bloodtype</strong> </h2>
+                                <p id="qrcode"> <img src="@ViewBag.qr" id="qrcodeimg" alt="Mi Foto"></p>
+
+                                        <p>www.utelvt.edu.ec</p>
+                                       <strong style="color:black;">DOCENTE</strong>
+                            </div>
+                                
+                                </div>
+                          
+                        </div>
+                        </div>
+                    </div>
+                   
+                }
+                <!--  <input type="button" class="button-arounder" value="CAMBIAR" onclick="ElegirFaultadColor()" />  // flores creo este formato de imprewsion
+                -->
+              
+                <div id="contenedorCanvas" ></div>
+                <div class="card__content">
+                    <div class="card__date">GENERADO</div>
+                    <time datetime="2023-03-10" id="div-hora" class="card__date"></time>
+                    <span class="card__title">
+                        El Carnet listo para Imprimir!!</span>
+
+                            <br>
+                    <input type="button" id="btnCapturar" class="button-arounder" value="Imprimir" />
+               
+                </div>
+                <script>
+                   
+                </script>
+
+                
+            }
+
+
+          
+  
+
+        </div>
+    </center>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+

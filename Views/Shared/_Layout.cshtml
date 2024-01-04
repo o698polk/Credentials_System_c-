@@ -1,0 +1,137 @@
+﻿@inject IHttpContextAccessor context;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <link rel="shortcut icon" href="/carnet\ESCUDETO_UTE-LVT.png">
+    <!-- <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />-->
+    <!-- <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />-->
+    <link rel="stylesheet" href="~/carnetutelvt.styles.css" asp-append-version="true" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="bootstrap, bootstrap4" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Source+Serif+Pro:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/bootstrap.min.css" >
+    <link rel="stylesheet" href="~/css/owl.carousel.min.css " >
+    <link rel="stylesheet" href="~/css/owl.theme.default.min.css" >
+    <link rel="stylesheet" href="~/css/jquery.fancybox.min.css">
+    <link rel="stylesheet" href="~/fonts/icomoon/style.css" asp-append-version=" true">
+    <link rel="stylesheet" href="~/fonts/flaticon/font/flaticon.css" asp-append-version=" true">
+    <link rel="stylesheet" href="~/css/daterangepicker.css" asp-append-version=" true">
+    <link rel="stylesheet" href="~/css/aos.css" asp-append-version=" true">
+     <link rel="stylesheet" href="~/css/style.css" asp-append-version=" true">
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version=" true" >
+ 
+    <link rel="stylesheet" href="~/table-06/css/style.css" asp-append-version=" true">
+    
+</head>
+<body id="fondopage" >
+ 
+    <div class="site-mobile-menu site-navbar-target">
+        <div class="site-mobile-menu-header">
+            <div class="site-mobile-menu-close">
+                <span class="icofont-close js-menu-toggle"></span>
+            </div>
+        </div>
+        <div class="site-mobile-menu-body"></div>
+    </div>
+
+    <nav class="site-nav">
+        <div class="container">
+            <div class="site-navigation">
+                <a asp-area="" asp-controller="Home" asp-action="Index" class="logo m-0"><strong> UTLVTE CARNET  </strong> <span class=""></span></a>
+            <!--  <a asp-area="" asp-controller="Usertbs" asp-action="CorreoEnviar" class="logo m-0"><strong> Correo </strong> <span class=""></span></a>
+                -->
+
+                <ul class="js-clone-nav d-none d-lg-inline-block text-left site-menu float-right">
+                   
+                    @if (context.HttpContext.Session.GetInt32("Id") > 0)
+                    {
+                         <li >
+                            <a type="button" class="btn btn-info  button-arounder" style="text-transform: uppercase; color:black;" asp-area="" asp-controller="Usertbs" asp-action="Tablero"> <strong>@context.HttpContext.Session.GetString("name")</strong> </a>
+                        </li>
+                        <li>
+                            <a type="submit" class="btn btn-info button-arounder" style="text-transform: uppercase; color:black;" asp-controller="Cuadernoes" asp-action="Index"> <strong>CUADERNO</strong> </a>
+                        </li>
+                        <li>
+                            <a type="button" class="btn btn-warning button-arounder" style="text-transform: uppercase; color:black;" asp-area="" asp-controller="Usertbs" asp-action="Chatbot"> <strong>CHATBOT</strong> </a>
+                        </li>
+
+                        <li>
+                            <a type="submit" class="btn btn-info button-arounder" style="text-transform: uppercase; color:black;" asp-controller="Usertbs" asp-action="Modifuser" asp-route-id="@context.HttpContext.Session.GetInt32("Id")"> <strong>AJUSTES</strong> </a>
+                        </li>
+                      
+                       
+                        if (context.HttpContext.Session.GetString("Rol") == "1")
+                        {
+                            <li><a asp-area="" type="button" class="btn btn-secondary button-arounder" asp-controller="Usertbs" asp-action="Index">Panel Admin</a></li>
+                        }
+                         <li>
+                            <a type="button" class="btn btn-danger button-arounder" asp-area="" asp-controller="Usertbs" asp-action="Logout">Salir</a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li><a asp-area="" type="button " class="btn btn-info button-arounder" asp-controller="Home" asp-action="Index">Home</a></li>
+                        <li><a asp-area="" type="button" class="btn btn-secondary button-arounder" asp-controller="Usertbs" asp-action="Register">Crear Cuenta</a></li>
+                        <li><a asp-area="" type="button" class="btn btn-success button-arounder" asp-controller="Usertbs" asp-action="Login">Iniciar Sesión</a></li>
+                    }
+                 
+                
+                   
+                   
+                  
+                </ul>
+
+                <a href="#" class="burger ml-auto float-right site-menu-toggle js-menu-toggle d-inline-block d-lg-none light" data-toggle="collapse" data-target="#main-navbar">
+                    <span></span>
+                </a>
+
+            </div>
+        </div>
+    </nav>
+    
+        <main role="main"  class="pb-3">
+            @RenderBody()
+        </main>
+
+
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+   <!--  <script src="~/js/jquery-3.4.1.min.js"></script>-->
+    <script src="~/js/popper.min.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+    <script src="~/js/owl.carousel.min.js"></script>
+    <script src="~/js/jquery.animateNumber.min.js"></script>
+    <script src="~/js/jquery.waypoints.min.js"></script>
+    <script src="~/js/jquery.fancybox.min.js"></script>
+    <script src="~/js/aos.js" asp-append-version="true"></script>
+    <script src="~/js/moment.min.js"></script>
+    <script src="~/js/daterangepicker.js"></script>
+    <script src="~/js/custom.js"></script>
+    <script src="~/js/typed.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.1/dist/html2canvas.min.js"></script>
+    <script src="~/js/script.js" asp-append-version="true"></script>
+    <!-- 
+    <script src="~/table-06/js/typed.js"></script>
+    <script src="~/table-06/js/jquery.min.js"></script>
+    <script src="~/table-06/js/popper.js"></script>
+    <script src="~/table-06/js/bootstrap.min.js"></script>
+    <script src="~/table-06/js/main.js"></script>-->
+ 
+   <!---PUBLICIDAD CODIGO 
+
+    <script>(function (s, u, z, p) { s.src = u, s.setAttribute('data-zone', z), p.appendChild(s); })(document.createElement('script'), 'https://inklinkor.com/tag.min.js', 5832455, document.body || document.documentElement)</script>
+    <script>    (function (s, u, z, p) { s.src = u, s.setAttribute('data-zone', z), p.appendChild(s); })(document.createElement('script'), 'https://inklinkor.com/tag.min.js', 5836668, document.body || document.documentElement)</script>
+          FIN PUBLICIDAD CODIGO -->
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

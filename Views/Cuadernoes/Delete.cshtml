@@ -1,0 +1,53 @@
+﻿@model carnetutelvt.Models.Cuaderno
+
+@{
+    ViewData["Title"] = "ELIMINAR HOJA";
+}
+
+<div class="hero">
+    <center>
+        <h1>ELIMINAR HOJA</h1> </center>
+    <div class="container">
+
+        <form asp-action="Delete" class="form">
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.NameC)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NameC)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.InfoC)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.InfoC)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Iduser)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Iduser)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Dateupdate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Dateupdate)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Datecreate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Datecreate)
+        </dd>
+    </dl>
+
+                    <input type="hidden" asp-for="Id" />
+                    <input type="submit" value="Delete" class="btn btn-danger" />
+
+                </form>
+                <a type="submit" class="btn btn-dark" asp-action="Index">Back</a>
+            </div>
+</div>
+

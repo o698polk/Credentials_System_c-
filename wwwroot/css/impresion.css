@@ -1,0 +1,71 @@
+﻿.carnet {
+    font-family: "Times New Roman", Times, serif;
+    width: 50px;
+    padding: 20px;
+    background-color: #466b78;
+    border: 3px solid #CCCCCC;
+    text-align: center;
+    margin: 0 auto;
+    border-radius: 20px;
+    color: #e2dede
+}
+
+    .carnet h1 {
+        font-family: "Times New Roman", Times, serif;
+        font-size: 24px;
+        margin-top: 0;
+        border: 3px solid #CCCCCC;
+        width: 100%;
+    }
+
+    .carnet h2 {
+        font-family: "Times New Roman", Times, serif;
+        font-size: 18px;
+        margin-top: 5px;
+        margin-bottom: 20px;
+        color: #e2dede;
+        border: 3px solid #CCCCCC;
+        width: 100%;
+    }
+
+    .carnet img {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        margin-bottom: 20px;
+        justify-content: center;
+    }
+
+    .carnet .datos {
+        text-align: center;
+        justify-content: center;
+        font-size: 14px;
+        width: 100%;
+        background-color: #5f8f8b;
+        border: 3px solid #CCCCCC;
+        border-radius: 20px;
+    }
+
+        .carnet .datos p {
+            margin: 5px 0;
+        }
+
+        .carnet .datos a {
+            color: #0000FF;
+            text-decoration: none;
+        }
+
+    .carnet .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh; /* establecer altura del contenedor */
+    }
+
+        .carnet .container .content {
+            border: 3px solid #CCCCCC;
+            background-color: #01533d;
+            justify-content: center;
+            margin: auto;
+            border-radius: 20px;
+        }

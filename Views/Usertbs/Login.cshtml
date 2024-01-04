@@ -1,0 +1,69 @@
+﻿@model carnetutelvt.Models.Usertb
+
+@{
+    ViewData["Title"] = "INICIAR SESIÓN";
+}
+
+
+
+
+<div class="hero">
+    <center><h1>Iniciar Sesión</h1></center>
+    <div class="container">
+       
+                    <form class="form" asp-action="Login">
+
+                        <div class="row mb-2">
+                            <div class="col-sm-12 col-md-6 mb-3 mb-lg-0 col-lg-3">
+                                <div class="form-group">
+
+                                    <input asp-for="Email" class="form-control" placeholder="Correo Institucional" />
+                                    <span asp-validation-for="Email" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-md-6 mb-3 mb-lg-0 col-lg-3">
+                                <div class="form-group">
+
+                        <input type="password" asp-for="Passwords" class="form-control" placeholder="Clave" />
+                                    <span asp-validation-for="Passwords" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-md-6 mb-3 mb-lg-0 col-lg-3">
+                                <div class="form-group">
+                                    <input type="submit" value="Login" class="btn btn-primary" />
+                                </div>
+                            </div>
+                   </div>
+                    </form>
+             
+    </div>
+    <div class="respuesta">
+        @if (ViewData["Error"] == "1")
+        {
+            <strong style="color:green">Datos Correctos </strong> <p style="color:blueviolet">Revisa su correo y Verifica tu cuenta</p>
+
+        }
+        else  @if (ViewData["Error"] == "0")
+        {
+            <strong style="color:red">Datos Incorrectos o cuenta no verificada </strong>
+            <!--  <a asp-area="" asp-controller="Usertbs" asp-action="CorreoEnviar" class="logo m-0  btn btn-primary"><strong> Reenviar Correo </strong> <span class=""></span></a>-->
+        }
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

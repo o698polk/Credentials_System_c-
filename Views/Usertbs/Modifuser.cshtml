@@ -1,0 +1,121 @@
+﻿@model carnetutelvt.Models.Usertb
+
+@{
+    ViewData["Title"] = "EDITAR DATOS";
+}
+
+
+<div class="hero">
+    <center> <h1>Editar Cuenta</h1></center>
+    <div class="container">
+
+        <form class="form" asp-action="EditPass">
+            <div class="row mb-2">
+                <div class="col-sm-12 col-md-6 mb-3 mb-lg-0 col-lg-3">
+                    <div class="form-group">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <input type="hidden" asp-for="Id" />
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-6 mb-3 mb-lg-0 col-lg-3">
+                    <div class="form-group">
+
+                        <input asp-for="Passwords" id="clave3" class="form-control" value="" oninput="verificarClaves1()"  placeholder="Nueva clave"required  />
+                        <span asp-validation-for="Passwords" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-6 mb-3 mb-lg-0 col-lg-3">
+                    <div class="form-group">
+
+                        <input type="password" id="clave4" class="form-control" placeholder="Repetir clave" oninput="verificarClaves1()" required />
+
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-6 mb-3 mb-lg-0 col-lg-3">
+                    <div class="form-group">
+                        <input type="submit" value="Save" id="btncreate1" class="btn btn-primary" />
+                    </div>
+                </div>
+            </div>
+        </form>
+        <br />
+
+        <form class="form" asp-action="EditFotoPerfil" enctype="multipart/form-data">
+            <div class="row mb-2">
+                <div class="col-sm-12 col-md-6 mb-3 mb-lg-0 col-lg-3">
+                    <div class="form-group">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <input type="hidden" asp-for="Id" />
+                    </div>
+                </div>
+               
+                <div class="col-sm-12 col-md-6 mb-3 mb-lg-0 col-lg-3">
+                    <div class="form-group">
+                        <label>Sube una imagen para tu perfil (recomendada, png)</label>
+
+                        <input type="file" name="Imgcarnett" class="form-control"  />
+
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-6 mb-3 mb-lg-0 col-lg-3">
+                    <div class="form-group">
+                        <input type="submit" value="Save"  class="btn btn-primary" />
+                    </div>
+                </div>
+            </div>
+        </form>
+        <br />
+        <form class="form" asp-action="EditTypeBlo" >
+            <div class="row mb-2">
+                <div class="col-sm-12 col-md-6 mb-3 mb-lg-0 col-lg-3">
+                    <div class="form-group">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <input type="hidden" asp-for="Id" />
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-6 mb-3 mb-lg-0 col-lg-3">
+                    <div class="form-group">
+                        <select type="select" name="Bloodtype" class="form-control" aria-label="Elegir Tipo de Sangre">
+                            <option value="" selected>Null</option>
+                            <option value="A+">A+</option>
+                            <option value="A-">A-</option>
+                            <option value="B+">B+</option>
+                            <option value="B-">B-</option>
+                            <option value="AB+">AB+</option>
+                            <option value="AB-">AB-</option>
+                            <option value="O+">O+</option>
+                            <option value="O-">O-</option>
+
+                        </select>
+                </div>
+                </div>
+
+                <div class="col-sm-12 col-md-6 mb-3 mb-lg-0 col-lg-3">
+                    <div class="form-group">
+                        <input type="submit" value="Save" class="btn btn-primary" />
+                    </div>
+                </div>
+            </div>
+        </form>
+        <a type="submit" class="btn btn-dark" asp-action="Index">Back</a>
+    </div>
+</div>
+<div class="respuesta">
+    @if (ViewData["Error"] == "1")
+    {
+        <strong style="color:green">Cuenta creada correctamente: </strong> <p style="color:blueviolet">Revisa tu correo y Verifica tu cuenta</p>
+
+    }
+    else @if (ViewData["Error"] == "0")
+    {
+        <strong style="color:red">Error en la creación (Tal vez la cuenta ya existe)</strong>
+    }
+</div>
+<div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

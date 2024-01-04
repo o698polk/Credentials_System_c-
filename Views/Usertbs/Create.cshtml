@@ -1,0 +1,82 @@
+﻿@model carnetutelvt.Models.Usertb
+
+@{
+    ViewData["Title"] = "CREAR USUARIO";
+}
+
+
+
+
+ 
+<div class="hero">
+    <center> <h1>Crear Cuenta</h1></center>
+	<div class="container">
+		
+							<form class="form" asp-action="Create">
+							
+                                            <div class="row mb-2">
+                                            <div class="col-sm-12 col-md-6 mb-3 mb-lg-0 col-lg-3">
+                                            <div class="form-group">
+
+                                            <input asp-for="Email" class="form-control" placeholder="Correo Institucional" />
+                                            <span asp-validation-for="Email" class="text-danger"></span>
+                                            </div>
+                                            </div>
+                                            <div class="col-sm-12 col-md-6 mb-3 mb-lg-0 col-lg-3">
+                                            <div class="form-group">
+
+                                            <input type="password"  asp-for="Passwords" class="form-control" placeholder="Clave" />
+                                            <span asp-validation-for="Passwords" class="text-danger"></span>
+                                            </div>
+                                            </div>
+                                            <div class="col-sm-12 col-md-6 mb-3 mb-lg-0 col-lg-3">
+                                            <div class="form-group">
+                        <select asp-for="Rol" class="form-control" aria-label="Elegir Rol">
+                                            
+                                            <option value="0" selected>User</option>
+                                            <option value="1">Admin</option>
+                           
+                                            </select>
+            
+                                            <span asp-validation-for="Rol" class="text-danger"></span>
+                                            </div>
+                                                                        </div>
+                                            <div class="col-sm-12 col-md-6 mb-3 mb-lg-0 col-lg-3">
+                                                <div class="form-group">
+                        <select asp-for="Typess" class="form-control" aria-label="Elegir Typess">
+
+                                                        <option selected value="0">Estudiante</option>
+                                                        <option value="1">Docente</option>
+
+                                                    </select>
+
+                                                    <span asp-validation-for="Typess" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                
+                            <div class="col-sm-12 col-md-6 mb-3 mb-lg-0 col-lg-3">
+                            <div class="form-group">
+                                <input type="submit" value="Create" class="btn btn-primary" />
+                            </div>
+                            </div>
+            </div>
+                    </form>
+        <a type="submit" class="btn btn-dark" asp-action="Index">Back</a>
+			</div>
+    <h1> @ViewData["Error"]</h1>
+		</div>
+
+
+
+
+
+
+
+
+
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

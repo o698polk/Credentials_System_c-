@@ -1,0 +1,39 @@
+﻿@model carnetutelvt.Models.Detallestb
+
+@{
+    ViewData["Title"] = "UTLVTEW";
+}
+
+<div class="hero">
+
+    <center> <h1>UTLVTE</h1> </center>
+    <div class="container">
+
+        <form class="form">
+            <dl class="row">
+                <dt class="col-sm-2">
+                    NOMBRES:
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Fullname)
+                </dd>
+                <dt class="col-sm-2">
+                    APELLIDOS:
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Surnames)
+                </dd>
+                <dt class="col-sm-2">
+                    FACULTAD:
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Faculty)
+                </dd>
+
+            </dl>
+        </form>
+        <div>
+     </div>
+
+
+

@@ -1,0 +1,110 @@
+﻿
+@{
+    ViewData["Title"] = "CARNET";
+}
+
+<div class="hero">
+    <!-- <center> <h1>Completa tus datos  para generar el Carnet</h1>></center>-->
+    <center>
+        
+    <div class="container">
+
+            @if (ViewBag.types=="0")
+            {
+                <div class="carnet" id="carnetid">
+
+                    <div class="content" id="carnetfondo">
+                        <div class="barralogo"> <img src="/carnet\ESCUDETO_UTE-LVT.png" loading="lazy" id="logout"alt="Mi Foto">UTLVTE</div>
+                        <img src="/uploads\@ViewBag.Imgcarnet" id="perfilimg" alt="Mi Foto">
+                        <h1>@ViewBag.Fullname @ViewBag.Surnames </h1>
+                        <h2><strong> ID:</strong> @ViewBag.Ci</h2>
+
+                        <div class="datos" id="fondodata">
+                            <strong>ESTUDIANTE</strong>
+                            <p id="Facultades" nfacul="@ViewBag.Faculty"><strong> Facultad:</strong> @ViewBag.Faculty</p>
+                            <p><strong> Carrera:</strong> @ViewBag.Specialty</p>
+                            <p><strong>Correo:</strong>  @ViewBag.email</p>
+                            <h2 class="tiposangre"><strong> @ViewBag.Bloodtype</strong> </h2>
+                            <p id="qrcode"> <img src="@ViewBag.qr" id="qrcodeimg" alt="Mi Foto"></p>
+
+                        </div>
+                        <p id="link">www.utelvt.edu.ec</p>
+
+                    </div>
+                </div>
+            }
+            else
+            {
+                
+            
+            <div class="container carnet2" id="carnetid">
+                    <div  id="marcofondo">
+                        <div class=" container doccontent" id="carnetfondo2">
+                            <br>
+
+                            <img src="/uploads\@ViewBag.Imgcarnet" id="perfilimg" alt="Mi Foto">
+
+                            <div  id="espaciondeldata">
+
+                                <div class="datos2" id="">
+                                    <br>
+
+                                    <h1>@ViewBag.Fullname @ViewBag.Surnames </h1>
+                                    <h2><strong> ID:</strong> @ViewBag.Ci</h2>
+                                    <p id="Facultades" nfacul="@ViewBag.Faculty"><strong> Facultad:</strong> @ViewBag.Faculty</p>
+
+                                    <p><strong>Correo:</strong>  @ViewBag.email</p>
+                                    <h2 class="tiposangre"><strong> @ViewBag.Bloodtype</strong> </h2>
+                                    <p id="qrcode"> <img src="@ViewBag.qr" id="qrcodeimg" alt="Mi Foto"></p>
+
+                                    <p>www.utelvt.edu.ec</p>
+                                    <strong style="color:black;">DOCENTE</strong>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            }
+           
+                
+            
+            <!--  <input type="button" class="button-arounder" value="CAMBIAR" onclick="ElegirFaultadColor()" />   // flores creo este formato de imprewsion
+                -->
+             
+                <div id="contenedorCanvas" ></div>
+                <div class="card__content">
+                    <div class="card__date">GENERADO</div>
+                    <time datetime="2023-03-10" id="div-hora" class="card__date"></time>
+                    <span class="card__title">
+                        El Carnet listo para Imprimir!!</span>
+
+                            <br>
+                    <input type="button" id="btnCapturar" class="button-arounder" value="Imprimir" />
+               
+                </div>
+                <script>
+                   
+                </script>
+
+        </div>
+    </center>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
